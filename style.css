@@ -196,7 +196,34 @@ body {
     display: flex;
     margin: 0px 42px;
   }
-  
+  .options {
+    background-color: #da32a5;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.options > button {
+    background-color: #da32a5;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.options > button:hover {
+    background-color: #da32a5;
+}
+a{
+  color: #fff;
+  text-decoration: none;
+}
   .profile,
   .wish,
   .bag {
