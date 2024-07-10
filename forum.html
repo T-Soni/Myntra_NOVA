@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BUZZ</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png"
-        href="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/myntraclone/logo.png"/>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/myntraclone/logo.png"/>
 </head>
 <body>
     <header>
@@ -20,12 +19,11 @@
                     <li class="homeliving">Home&Living</li>
                     <li class="beauty">Beauty</li>
                     <li class="studio">Studio</li>
-                    <li class="buzz"><a  href="forum.html" target="_blank">Buzz</a></li>
+                    <li class="buzz"><a href="forum.html" target="_blank">Buzz</a></li>
                 </ul>
             </div>
             <div class="right">
-                <input placeholder="Search for products, brands and more" class="desktop-searchBar" value=""
-                    data-reactid="904">
+                <input placeholder="Search for products, brands and more" class="desktop-searchBar" value="" data-reactid="904">
                 <div class="icons">
                     <div class="profile">Profile</div>
                     <div class="wish">Wishlist</div>
@@ -34,55 +32,102 @@
             </div>
         </nav>
     </header>
-  <div class="container">
-    <h1>BUZZ</h1>
-    <div class="qa-list">
-      <div class="qa-block">
-        <div class="question">
-          <h2>What should I wear to my college Fresher's?</h2>
-          <div class="info">
-            <span>Asked by John Doe</span>
-            <div>A good outfit idea for colllege freshers........</div>
-          </div>
-          <div class="like-section">
-            <button class="like-btn">Like</button>
-            <span class="like-count">0 likes</span>
-          </div>
-          <button class="view-answer-btn">View Answer</button>
-          <div class="answer hidden">
-            <p>HTML stands for HyperText Markup Language. It is used to create and structure web pages and their content.</p>
-            <div class="info">
-              <span>Answered by Jane Smith</span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="qa-block">
-        <div class="question">
-          <h2>What should I wear to my college Fresher's?</h2>
-          <div class="info">
-            <span>Asked by Alice Brown</span>
-          </div>
-          <div class="like-section">
-            <button class="like-btn">Like</button>
-            <span class="like-count">0 likes</span>
-          </div>
-          <button class="view-answer-btn">View Answer</button>
-          <div class="answer hidden">
-            <p>CSS stands for Cascading Style Sheets. It is used for describing the presentation of a document written in HTML or XML.</p>
-            <div class="info">
-              <span>Answered by Bob Green</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Add more qa-blocks as needed -->
-
+    <div class="options">
+        <button class="add-question-btn"><a href="questionform.html">Add Question</a></button>
+      
+        <button class="unanswered-btn"><a href="questionsnotanswered.html">Unanswered</a></button>
+        <button class="answered-btn">Answered</button>
     </div>
-  </div>
 
-  <script src="scripts.js"></script>
+    <div class="container">
+        <h1>BUZZ</h1>
+        <div class="qa-list">
+            <div class="qa-block">
+                <div class="question">
+                    <h2>What should I wear to my college Fresher's?</h2>
+                    <div class="info">
+                        <span>Asked by John Doe</span>
+                        <div>A good outfit idea for college freshers........</div>
+                    </div>
+                    <div class="like-section">
+                        <button class="like-btn">Like</button>
+                        <span class="like-count">0 likes</span>
+                    </div>
+                    <button class="view-answer-btn">View Answer</button>
+                    <div class="answer hidden">
+                        <p>HTML stands for HyperText Markup Language. It is used to create and structure web pages and their content.</p>
+                        <div class="info">
+                            <span>Answered by Jane Smith</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qa-block">
+                <div class="question">
+                    <h2>What should I wear to my college Fresher's?</h2>
+                    <div class="info">
+                        <span>Asked by Alice Brown</span>
+                    </div>
+                    <div class="like-section">
+                        <button class="like-btn">Like</button>
+                        <span class="like-count">0 likes</span>
+                    </div>
+                    <button class="view-answer-btn">View Answer</button>
+                    <div class="answer hidden">
+                        <p>CSS stands for Cascading Style Sheets. It is used for describing the presentation of a document written in HTML or XML.</p>
+                        <div class="info">
+                            <span>Answered by Bob Green</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="qa-block">
+              <div class="question">
+                  <h2>What should I wear to my college Fresher's?</h2>
+                  <div class="info">
+                      <span>Asked by Alice Brown</span>
+                  </div>
+                  <div class="like-section">
+                      <button class="like-btn">Like</button>
+                      <span class="like-count">0 likes</span>
+                  </div>
+                  <button class="view-answer-btn">View Answer</button>
+                  <div class="answer hidden">
+                      <p>CSS stands for Cascading Style Sheets. It is used for describing the presentation of a document written in HTML or XML.</p>
+                      <div class="info">
+                          <span>Answered by Bob Green</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="qa-block">
+            <div class="question">
+                <h2>What should I wear to my college Fresher's?</h2>
+                <div class="info">
+                    <span>Asked by Alice Brown</span>
+                </div>
+                <div class="like-section">
+                    <button class="like-btn">Like</button>
+                    <span class="like-count">0 likes</span>
+                </div>
+                <button class="view-answer-btn">View Answer</button>
+                <div class="answer hidden">
+                    <p>CSS stands for Cascading Style Sheets. It is used for describing the presentation of a document written in HTML or XML.</p>
+                    <div class="info">
+                        <span>Answered by Bob Green</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <!-- Add more qa-blocks as needed -->
+
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
