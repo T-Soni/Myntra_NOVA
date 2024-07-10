@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideas List</title>
+    <link rel="stylesheet" href="styleunanswered.css"> 
+</head>
+<body>
+    <h1 >BUZZ</h1>
+    <h2>Questions You Can Answer!</h2>
+    <ul id="ideas-list"></ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const ideasList = document.getElementById('ideas-list');
+
+            const savedIdeas = JSON.parse(localStorage.getItem('fashionIdeas')) || [];
+
+            function renderIdeas() {
+                ideasList.innerHTML = '';
+                savedIdeas.forEach((idea, index) => {
+                    let li = document.createElement('li');
+                    li.classList.add('idea-item'); // Add a class for styling purposes
+
+                    // Create idea content container
+                    let contentContainer = document.createElement('div');
+                    contentContainer.classList.add('idea-content');
+                    contentContainer.textContent = idea;
+
+                    // Create button container div
+                    let buttonContainer = document.createElement('div');
+                    buttonContainer.classList.add('button-container');
+
+                    // Create delete button
+                    let deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.classList.add('delete-btn');
+                    deleteBtn.addEventListener('click', () => {
+                        deleteIdea(index);
+                    });
+
+                    // Create answer button
+                    let answerBtn = document.createElement('button');
+                    answerBtn.textContent = 'Answer this Question';
+                    answerBtn.classList.add('ans-btn');
+                    answerBtn.addEventListener('click', () => {
+                        window.location.href = 'questionform.html';
+                    });
+
+                    // Append content and buttons to list item
+                    li.appendChild(contentContainer);
+                    li.appendChild(buttonContainer);
+                    buttonContainer.appendChild(deleteBtn);
+                    buttonContainer.appendChild(answerBtn);
+
+                    // Append list item to list
+                    ideasList.appendChild(li);
+                });
+            }
+
+            function deleteIdea(index) {
+                savedIdeas.splice(index, 1);
+                localStorage.setItem('fashionIdeas', JSON.stringify(savedIdeas));
+                renderIdeas();
+            }
+
+            renderIdeas();
+        });
+    </script>
+</body>
+</html>
