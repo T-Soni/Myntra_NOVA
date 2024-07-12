@@ -3,43 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Ideas</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Register & Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style1.css">
+    <script type="module" src="firebaseauth.js"></script>
 </head>
 <body>
-    <!-- <div class="container">
-        <h1>Fashion Ideas</h1>
-        <div class="image-container">
-            <img src="fashion.jpg" alt="Fashion Image">
-        </div> -->
-        <div id="navbar"> 
-            Navbar section 
+    <div class="container" id="signup" style="display:none;">
+      <h1 class="form-title">Register</h1>
+      <form method="post" action="">
+        <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+        <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text"  id="fName" placeholder="First Name" required>
+        <label for="fname">First Name</label>
         </div>
-        <div class="heading">
-            <h1> Q. What should I wear to my Colledge Fresher's?</h1>
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text"  id="lName" placeholder="Last Name" required>
+            <label for="lName">Last Name</label>
         </div>
-            <div class="container">
-                <img src="Pastel Dream Organza Saree.jpeg" alt="Description of Image">
-                <p>Asked by User456 on June 25, 2024<br>
-                    <br>
-                    Answered by Kamala123 <br>
-                    <br>
-                    
-                    When it comes to making a stunning impression at your college fresher's party, an organza saree is a fantastic choice. This elegant fabric offers a perfect blend of sophistication and contemporary style, ideal for standing out in the crowd. The sheer, lightweight nature of organza ensures you remain comfortable throughout the event, while its natural sheen adds a touch of glamour. Whether you opt for a floral print, subtle pastels, or vibrant hues, an organza saree drapes beautifully, highlighting your youthful charm and grace. Pair it with statement accessories and a stylish blouse to complete the look, and you're ready to make a memorable entrance at your fresher's party!</p>
-            </div>
-        <div class="ideas-container">
-            <h2> Add Your Answers</h2>
-            <ul id="ideas-list">
-                <!-- User answers will be appended here -->
-            </ul>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email"  id="rEmail" placeholder="Email" required>
+            <label for="rEmail">Email</label>
         </div>
-        <form id="idea-form">
-            <input type="text" id="idea-input" placeholder="Enter your fashion idea" required>
-            <button type="submit">Add Your Answer</button>
-        </form>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="rPassword"  placeholder="Password" required>
+            <label for="rPassword">Password</label>
+        </div>
+      <button class="btn" id="submitSignUp" >Sign Up</button>
+      </form>
+      
+      <div class="links">
+        <p>Already Have Account ?</p>
+        <button id="signInButton">Sign In</button>
+      </div>
     </div>
-    <div class="footer"></div>
 
-    <script src="scripts.js"></script>
+  <div class="container" id="signIn">
+        <h1 class="form-title">Sign In</h1>
+        <form method="post" action="">
+          <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+
+          <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email"  id="email" placeholder="Email" required>
+              <label for="email">Email</label>
+          </div>
+          <div class="input-group">
+              <i class="fas fa-lock"></i>
+            <input type="password" id="password"  placeholder="Password" required>
+              <label for="password">Password</label>
+          </div>
+          <p class="recover">
+            <a href="#">Recover Password</a>
+          </p>
+        <button  class="btn"  id="submitSignIn">Sign In</button>
+        </form>
+        
+        <div class="links">
+          <p>Don't have account yet?</p>
+          <button id="signUpButton">Sign Up</button>
+        </div>
+      </div>
+      <script src="script1.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
-import{getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js"
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import { doc, getFirestore, setDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBJpBspz03I3eEK4GIC-xgo1vwjZFPg4XQ",
@@ -12,12 +12,12 @@ const firebaseConfig = {
     messagingSenderId: "330665441470",
     appId: "1:330665441470:web:425a090774a6811c3b46ef"
 
-  };
+};
 
  // Initialize Firebase
- const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
- function showMessage(message, divId){
+function showMessage(message, divId){
     var messageDiv=document.getElementById(divId);
     messageDiv.style.display="block";
     messageDiv.innerHTML=message;
@@ -25,9 +25,9 @@ const firebaseConfig = {
     setTimeout(function(){
         messageDiv.style.opacity=0;
     },5000);
- }
- const signUp=document.getElementById('submitSignUp');
- signUp.addEventListener('click', (event)=>{
+}
+const signUp=document.getElementById('submitSignUp');
+signUp.addEventListener('click', (event)=>{
     event.preventDefault();
     const email=document.getElementById('rEmail').value;
     const password=document.getElementById('rPassword').value;
@@ -49,7 +49,7 @@ const firebaseConfig = {
         const docRef=doc(db, "users", user.uid);
         setDoc(docRef,userData)
         .then(()=>{
-            window.location.href='index1.html';
+            window.location.href='index.html';
         })
         .catch((error)=>{
             console.error("error writing document", error);
@@ -65,10 +65,10 @@ const firebaseConfig = {
             showMessage('unable to create User', 'signUpMessage');
         }
     })
- });
+});
 
- const signIn=document.getElementById('submitSignIn');
- signIn.addEventListener('click', (event)=>{
+const signIn=document.getElementById('submitSignIn');
+signIn.addEventListener('click', (event)=>{
     event.preventDefault();
     const email=document.getElementById('email').value;
     const password=document.getElementById('password').value;
@@ -79,7 +79,8 @@ const firebaseConfig = {
         showMessage('login is successful', 'signInMessage');
         const user=userCredential.user;
         localStorage.setItem('loggedInUserId', user.uid);
-        window.location.href='homepage.html';
+        //window.location.href='homepage.html';
+        window.location.href='myntra.html';
     })
     .catch((error)=>{
         const errorCode=error.code;
@@ -90,4 +91,4 @@ const firebaseConfig = {
             showMessage('Account does not Exist', 'signInMessage');
         }
     })
- })
+})
