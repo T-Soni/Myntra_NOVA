@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 
-import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
-import{getFirestore, getDoc, doc} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js"
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import { doc, getDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBJpBspz03I3eEK4GIC-xgo1vwjZFPg4XQ",
@@ -12,15 +12,15 @@ const firebaseConfig = {
     messagingSenderId: "330665441470",
     appId: "1:330665441470:web:425a090774a6811c3b46ef"
 
-  };
+};
 
  // Initialize Firebase
- const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-  const auth=getAuth();
-  const db=getFirestore();
+const auth=getAuth();
+const db=getFirestore();
 
-  onAuthStateChanged(auth, (user)=>{
+onAuthStateChanged(auth, (user)=>{
     const loggedInUserId=localStorage.getItem('loggedInUserId');
     if(loggedInUserId){
         console.log(user);
@@ -45,17 +45,17 @@ const firebaseConfig = {
     else{
         console.log("User Id not Found in Local storage")
     }
-  })
+})
 
-  const logoutButton=document.getElementById('logout');
+const logoutButton=document.getElementById('logout');
 
-  logoutButton.addEventListener('click',()=>{
+logoutButton.addEventListener('click',()=>{
     localStorage.removeItem('loggedInUserId');
     signOut(auth)
     .then(()=>{
-        window.location.href='index1.html';
+        window.location.href='index.html';
     })
     .catch((error)=>{
         console.error('Error Signing out:', error);
     })
-  })
+})
