@@ -8,126 +8,110 @@
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/myntraclone/logo.png"/>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="left">
-                <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/myntraclone/logo.png" alt="">
-                <ul>
-                    <li class="men">Men</li>
-                    <li class="women">Women</li>
-                    <li class="kids">Kids</li>
-                    <li class="homeliving">Home&Living</li>
-                    <li class="beauty">Beauty</li>
-                    <li class="studio">Studio</li>
-                    <li class="buzz"><a href="forum.html" target="_blank">Buzz</a></li>
-                </ul>
-            </div>
-            <div class="right">
-                <input placeholder="Search for products, brands and more" class="desktop-searchBar" value="" data-reactid="904">
-                <div class="icons">
-                    <div class="profile">Profile</div>
-                    <div class="wish">Wishlist</div>
-                    <div class="bag">Bag</div>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <div class="left">
+        <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/myntraclone/logo.png" alt="">
+        <ul>
+          <li class="men">Men</li>
+          <li class="women">Women</li>
+          <li class="kids">Kids</li>
+          <li class="homeliving">Home&Living</li>
+          <li class="beauty">Beauty</li>
+          <li class="studio">Studio</li>
+          <li class="buzz"><a href="forum.html">Buzz</a></li>
+        </ul>
+      </div>
+      <div class="right">
+        <input placeholder="Search for products, brands and more" class="desktop-searchBar" value="" data-reactid="904">
+        <div class="icons">
+          <div class="profile">Profile</div>
+          <div class="wish">Wishlist</div>
+          <div class="bag">Bag</div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <div class="options">
-        <button class="add-question-btn"><a href="questionform.html">Add Question</a></button>
-      
-        <button class="unanswered-btn"><a href="questionsnotanswered.html">Unanswered</a></button>
-        <button class="answered-btn">Answered</button>
+  <div class="options">
+    <button class="add-question-btn"><a href="questionform.html">Add Question</a></button>
+    <button class="unanswered-btn"><a href="questionsnotanswered.html">Unanswered</a></button>
+    <button class="answered-btn"><a href="answered.html">Answered</a></button>
+  </div>
+
+  <div class="container">
+    <h1>BUZZ</h1>
+    <div class="qa-list" id="qa-list">
+      <!-- This div will dynamically display question-answer pairs -->
     </div>
+  </div>
 
-    <div class="container">
-        <h1>BUZZ</h1>
-        <div class="qa-list">
-            <div class="qa-block">
-                <div class="question">
-                    <h2>What should I wear to my college Fresher's?</h2>
-                    <div class="info">
-                        <span>Asked by John Doe</span>
-                        <div>A good outfit idea for college freshers........</div>
-                    </div>
-                    <div class="like-section">
-                        <button class="like-btn">Like</button>
-                        <span class="like-count">0 likes</span>
-                    </div>
-                    <button class="view-answer-btn">View Answer</button>
-                    <div class="answer hidden">
-                        <p>HTML stands for HyperText Markup Language. It is used to create and structure web pages and their content.</p>
-                        <div class="info">
-                            <span>Answered by Jane Smith</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const forumData = JSON.parse(localStorage.getItem('forumData')) || [];
 
-            <div class="qa-block">
-                <div class="question">
-                    <h2>What should I wear to my college Fresher's?</h2>
-                    <div class="info">
-                        <span>Asked by Alice Brown</span>
-                    </div>
-                    <div class="like-section">
-                        <button class="like-btn">Like</button>
-                        <span class="like-count">0 likes</span>
-                    </div>
-                    <button class="view-answer-btn">View Answer</button>
-                    <div class="answer hidden">
-                        <p>CSS stands for Cascading Style Sheets. It is used for describing the presentation of a document written in HTML or XML.</p>
-                        <div class="info">
-                            <span>Answered by Bob Green</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="qa-block">
-              <div class="question">
-                  <h2>What should I wear to my college Fresher's?</h2>
-                  <div class="info">
-                      <span>Asked by Alice Brown</span>
-                  </div>
-                  <div class="like-section">
-                      <button class="like-btn">Like</button>
-                      <span class="like-count">0 likes</span>
-                  </div>
-                  <button class="view-answer-btn">View Answer</button>
-                  <div class="answer hidden">
-                      <p>CSS stands for Cascading Style Sheets. It is used for describing the presentation of a document written in HTML or XML.</p>
-                      <div class="info">
-                          <span>Answered by Bob Green</span>
-                      </div>
-                  </div>
-              </div>
+      const qaList = document.getElementById('qa-list');
+
+      // Function to update like count
+      function updateLikeCount(index) {
+        const likeCountSpan = qaList.querySelectorAll('.like-count')[index];
+        let currentLikes = parseInt(likeCountSpan.textContent.split(' ')[0]); // Extract current likes
+        currentLikes++;
+        likeCountSpan.textContent = `${currentLikes} likes`;
+      }
+
+      // Function to toggle answer visibility
+      function toggleAnswer(index) {
+        const answerDiv = qaList.querySelectorAll('.answer')[index];
+        answerDiv.classList.toggle('hidden');
+      }
+
+      // Function to view detailed answer in index11.html
+      function viewAnswer(index) {
+        const answer = forumData[index].answer;
+        // Redirect to index11.html with the answer content
+        window.location.href = `index11.html?answer=${encodeURIComponent(answer)}`;
+      }
+
+      // Loop through each question-answer pair in forumData
+      forumData.forEach((qaPair, index) => {
+        const question = qaPair.question;
+        const answer = qaPair.answer;
+
+        // Create elements to display the question and answer
+        const qaBlock = document.createElement('div');
+        qaBlock.classList.add('qa-block');
+
+        const questionElement = document.createElement('div');
+        questionElement.classList.add('question');
+        questionElement.innerHTML = `
+          <h2>${question}</h2>
+          <div class="info">
+            <span>Asked by User</span>
+            <div>${answer}</div>
           </div>
-          <div class="qa-block">
-            <div class="question">
-                <h2>What should I wear to my college Fresher's?</h2>
-                <div class="info">
-                    <span>Asked by Alice Brown</span>
-                </div>
-                <div class="like-section">
-                    <button class="like-btn">Like</button>
-                    <span class="like-count">0 likes</span>
-                </div>
-                <button class="view-answer-btn">View Answer</button>
-                <div class="answer hidden">
-                    <p>CSS stands for Cascading Style Sheets. It is used for describing the presentation of a document written in HTML or XML.</p>
-                    <div class="info">
-                        <span>Answered by Bob Green</span>
-                    </div>
-                </div>
+          <div class="like-section">
+            <button class="like-btn" onclick="updateLikeCount(${index})">Like</button>
+            <span class="like-count">0 likes</span>
+          </div>
+          <button class="view-answer-btn"> <a href="index11.html">View Answer</a></button>
+          <div class="answer hidden">
+            <p>${answer}</p>
+            <div class="info">
+              <span>Answered by User</span>
             </div>
-        </div>
+          </div>
+        `;
 
+        // Append question element to qaBlock
+        qaBlock.appendChild(questionElement);
 
-            <!-- Add more qa-blocks as needed -->
-
-        </div>
-    </div>
-
-    <script src="scriptsforum.js"></script>
+        // Append qaBlock to qaList
+        qaList.appendChild(qaBlock);
+      });
+    });
+  </script>
 </body>
 </html>
+
